@@ -13,6 +13,7 @@
 		59826CD9291F99F3009F0D7D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59826CD8291F99F3009F0D7D /* Preview Assets.xcassets */; };
 		59826CDB291F99F3009F0D7D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59826CDA291F99F3009F0D7D /* Persistence.swift */; };
 		59826CDE291F99F3009F0D7D /* Tree.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59826CDC291F99F3009F0D7D /* Tree.xcdatamodeld */; };
+		59826CE52920DFBA009F0D7D /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59826CE42920DFBA009F0D7D /* Node.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		59826CD8291F99F3009F0D7D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		59826CDA291F99F3009F0D7D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		59826CDD291F99F3009F0D7D /* Tree.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tree.xcdatamodel; sourceTree = "<group>"; };
+		59826CE42920DFBA009F0D7D /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		593E32902920FC3F00CFF33D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				59826CE42920DFBA009F0D7D /* Node.swift */,
+				59826CDC291F99F3009F0D7D /* Tree.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		593E32912920FCDD00CFF33D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				59826CD3291F99EB009F0D7D /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		593E32922920FCE500CFF33D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		59826CC5291F99EB009F0D7D = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +82,11 @@
 			isa = PBXGroup;
 			children = (
 				59826CD1291F99EB009F0D7D /* TreeApp.swift */,
-				59826CD3291F99EB009F0D7D /* ContentView.swift */,
+				593E32912920FCDD00CFF33D /* View */,
+				593E32922920FCE500CFF33D /* ViewModel */,
+				593E32902920FC3F00CFF33D /* Model */,
 				59826CD5291F99F3009F0D7D /* Assets.xcassets */,
 				59826CDA291F99F3009F0D7D /* Persistence.swift */,
-				59826CDC291F99F3009F0D7D /* Tree.xcdatamodeld */,
 				59826CD7291F99F3009F0D7D /* Preview Content */,
 			);
 			path = Tree;
@@ -144,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59826CDB291F99F3009F0D7D /* Persistence.swift in Sources */,
+				59826CE52920DFBA009F0D7D /* Node.swift in Sources */,
 				59826CDE291F99F3009F0D7D /* Tree.xcdatamodeld in Sources */,
 				59826CD4291F99EB009F0D7D /* ContentView.swift in Sources */,
 				59826CD2291F99EB009F0D7D /* TreeApp.swift in Sources */,
