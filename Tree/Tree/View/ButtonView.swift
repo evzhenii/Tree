@@ -16,7 +16,7 @@ struct ButtonView: View {
         Button(buttonName) {
             action()
         }
-        .padding(15)
+        .frame(width: UIScreen.main.bounds.width / 2.5, height: 50)
         .background(Color.accentColor)
         .foregroundColor(Color.white)
         .cornerRadius(12)

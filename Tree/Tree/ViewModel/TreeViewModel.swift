@@ -64,5 +64,7 @@ class TreeViewModel: ObservableObject {
     
     func moveToChild(_ child: Node) {
         currentNode = child
+//        currentNode.children.objects
+//        currentNode = currentNode.children[offsets]
     }
 }

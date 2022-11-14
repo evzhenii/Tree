@@ -11,43 +11,38 @@ struct ContentView: View {
     @StateObject var treeViewModel: TreeViewModel = TreeViewModel()
     
     var body: some View {
-        NavigationView {
-            
-            
-            VStack(alignment: .leading) {
-                Text("This node name is: \(treeViewModel.currentNode.name)")
-                Spacer()
-                
-                VStack {
-                    
-                    ButtonView(buttonName: "Add new node", action: treeViewModel.addNode)
-                    ButtonView(buttonName: "Move to parent node", action: treeViewModel.moveToParent)
-                    
-                }
-                
-                Text("This node has \(treeViewModel.currentNode.children.count) children")
-                
-                List() {
+        VStack(spacing: 20) {
+            Spacer()
+            Text("Current node: \(treeViewModel.currentNode.name)".uppercased())
+            Spacer()
+            List {
+                Section {
                     ForEach(treeViewModel.currentNode.children) { child in
-                        Button(action: {
+                        VStack(alignment: .leading, spacing: 15) {
+                            Text("\(child.name)")
+                                .lineLimit(2)
+                                .font(.title3)
+                                .minimumScaleFactor(0.5)
+                            
+                            Text("\(child.children.count) children")
+                        }
+                        .onTapGesture {
                             treeViewModel.moveToChild(child)
-                        }, label: {
-                            VStack(alignment: .leading, spacing: 15) {
-                                Text("name: \(child.name)")
-                                    .lineLimit(1)
-                                    .font(.title3)
-                                    .minimumScaleFactor(0.5)
-                                
-                                Text("\(child.children.count) children")
-                            }
-                        })
+                        }
                     }
-                    .onDelete(perform: treeViewModel.delete(at:))
+                    .onDelete(perform: treeViewModel.delete)
+                } header: {
+                    Text("This node has \(treeViewModel.currentNode.children.count) children")
                 }
             }
-            .navigationTitle("Tree")
-            .padding()
+            
+            .listStyle(.plain)
+            HStack(alignment: .center) {
+                ButtonView(buttonName: "Move to parent", action: treeViewModel.moveToParent)
+                ButtonView(buttonName: "Add new node", action: treeViewModel.addNode)
+            }
         }
+        .padding()
     }
 }
 
