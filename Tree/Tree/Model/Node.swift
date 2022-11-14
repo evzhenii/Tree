@@ -9,9 +9,7 @@ import Combine
 import Foundation
 
 final class Node {
-    
-//    var id = UUID()
-    
+    // MARK: - Properties
     var name: String {
         String("\(self.hashValue.bigEndian)".suffix(20))
     }

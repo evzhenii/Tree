@@ -7,14 +7,20 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TreeContentView: View {
     @StateObject var treeViewModel: TreeViewModel = TreeViewModel()
     
     var body: some View {
         VStack(spacing: 20) {
-            Spacer()
-            Text("Current node: \(treeViewModel.currentNode.name)".uppercased())
-            Spacer()
+            
+            Text("Current node:".uppercased())
+            
+            Text(treeViewModel.currentNode.name)
+                .padding(15)
+                .background(Color.purple)
+                .foregroundColor(Color.white)
+                .cornerRadius(12)
+            
             List {
                 Section {
                     ForEach(treeViewModel.currentNode.children) { child in
@@ -26,6 +32,7 @@ struct ContentView: View {
                             
                             Text("\(child.children.count) children")
                         }
+                        .contentShape(Rectangle())
                         .onTapGesture {
                             treeViewModel.moveToChild(child)
                         }
@@ -35,21 +42,20 @@ struct ContentView: View {
                     Text("This node has \(treeViewModel.currentNode.children.count) children")
                 }
             }
-            
             .listStyle(.plain)
+            
             HStack(alignment: .center) {
                 ButtonView(buttonName: "Move to parent", action: treeViewModel.moveToParent)
                 ButtonView(buttonName: "Add new node", action: treeViewModel.addNode)
             }
+            
         }
         .padding()
     }
 }
 
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        TreeContentView()
     }
 }
